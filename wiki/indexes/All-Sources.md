@@ -9,14 +9,26 @@ updated: 2026-04-05
 
 ## 统计
 
-- **总计**: 232 篇
+- **总计**: 236 篇
 - **伯克希尔股东信**: 60 篇
 - **合伙人信**: 46 篇
 - **公司**: 62 篇
 - **投资概念**: 50 篇
 - **人物**: 8 篇
 - **特别信件**: 3 篇
+- **AI 文章**: 4 篇
 - **其他**: 3 篇
+
+---
+
+## AI 文章 (2026)
+
+| ID | 标题 | 作者 | 日期 | 摘要链接 |
+|---|---|---|---|---|
+| AI-001 | Karpathy 的 LLM 知识库方法论 | Andrej Karpathy | 2025-12 | [[wiki/summaries/S-AI001-Karpathy-LLM-Knowledge-Bases]] |
+| AI-002 | Karpathy 的 2025 LLM 年度回顾 | Andrej Karpathy | 2025-12-31 | [[wiki/summaries/S-AI002-Karpathy-2025-LLM-Year-Review]] |
+| AI-003 | Claude Code 最佳实践完全指南 | Anthropic | 2026-04 | [[wiki/summaries/S-AI003-Claude-Code-Best-Practices]] |
+| AI-004 | AI Agent 2025-2026 进展全景 | Multiple Sources | 2026-01 | [[wiki/summaries/S-AI004-AI-Agent-Progress]] |
 
 ---
 

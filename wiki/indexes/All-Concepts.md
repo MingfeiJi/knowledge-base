@@ -5,9 +5,39 @@ updated: 2026-04-05
 
 # 概念索引 (All-Concepts)
 
-巴菲特投资哲学核心概念清单。
+投资哲学与 AI 技术核心概念清单。
 
-## 核心投资理念
+---
+
+## AI 技术概念
+
+### LLM 与知识管理
+
+- [[wiki/concepts/C-AI001-LLM-Compiler|LLM 编译器（LLM Compiler）]]
+- [[wiki/concepts/C-AI003-Context-Engineering|上下文工程（Context Engineering）]]
+
+### 训练与推理
+
+- [[wiki/concepts/C-AI005-RLVR|RLVR（强化学习从可验证奖励）]]
+
+### Agentic AI
+
+- [[wiki/concepts/C-AI006-Vibe-Coding|Vibe Coding（氛围编程）]]
+- [[wiki/concepts/C-AI011-MCP|MCP（Model Context Protocol）]]
+
+### 完整 AI 概念列表
+
+| ID | 概念 | 链接 |
+|---|---|---|
+| C-AI001 | LLM 编译器 | [[wiki/concepts/C-AI001-LLM-Compiler]] |
+| C-AI003 | 上下文工程 | [[wiki/concepts/C-AI003-Context-Engineering]] |
+| C-AI005 | RLVR | [[wiki/concepts/C-AI005-RLVR]] |
+| C-AI006 | Vibe Coding | [[wiki/concepts/C-AI006-Vibe-Coding]] |
+| C-AI011 | MCP | [[wiki/concepts/C-AI011-MCP]] |
+
+---
+
+## 巴菲特投资理念
 
 ### 核心投资理念
 
