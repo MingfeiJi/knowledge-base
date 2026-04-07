@@ -1,98 +1,128 @@
 # 内容生产规则
 
-## 内容生产链路
+## 核心原则
 
-```
-输入源 → 采集 → 编译 → 创作 → 发布
-  │         │       │       │       │
-  │         │       │       │       └─ 社交平台
-  │         │       │       └─ x/ 公众号/ 小红书/
-  │         │       └─ wiki/
-  │         └─ raw/
-  └─ URL / 搜索 / 推荐
-```
+**raw = 原汁原味的完整内容**
+- 文章：全文，一字不改
+- 播客：逐字稿，包括语气词、停顿、互动
+- 视频：完整字幕或转写
+- 不要摘要，不要提炼，保留所有细节
 
-## 输入源优先级
+**wiki = 编译提炼后的精华**
+- 这里才做总结、提取、关联
+- 保留原文引用，标明出处
 
-### AI 领域优质信息源
-1. **一手信息**
-   - OpenAI Blog / Anthropic Blog / Google AI Blog
-   - arXiv 论文
-   - 官方文档和 Changelog
+**平台内容 = 有血有肉的表达**
+- 讲人话，有温度
+- 用故事和例子，不要堆术语
+- 金句要能脱口而出
 
-2. **意见领袖**
-   - Andrej Karpathy (@karpathy)
-   - Yann LeCun (@ylecun)
-   - Jim Fan (@DrJimFan)
-   - 国内: 李沐, 宝玉 (@dotey)
-
-3. **高质量播客**
-   - Lex Fridman Podcast
-   - Acquired
-   - Latent Space
-
-4. **社区讨论**
-   - Hacker News
-   - Reddit r/MachineLearning
-   - Twitter/X AI 话题
+---
 
 ## 采集策略
 
-### 按内容类型
-| 类型 | 工具 | 存储位置 |
+### 1. 文章采集
+
+**目标**：获取完整全文
+
+| 来源类型 | 工具 | 注意事项 |
 |---|---|---|
-| 网页文章 | WebFetch + Jina | raw/articles/ |
-| 社交媒体 | Web Access (CDP) | raw/articles/ |
-| 播客转录 | Podwise / Whisper | raw/podcasts/ |
-| PDF 论文 | Claude 直接读取 | raw/papers/ |
-| 视频字幕 | yt-dlp + Whisper | raw/podcasts/ |
+| 普通网页 | WebFetch / Jina Reader / curl+python | 确保获取正文全部 |
+| 付费墙 | Chrome 浏览器手动 | 登录后复制 |
+| 微信公众号 | 手动复制或 API | 图片需单独处理 |
+| Twitter/X Thread | 浏览器扩展 | 保留完整线程 |
 
-### 反爬处理
-- 需登录: 使用 Web Access (复用 Chrome 登录态)
-- 动态加载: 使用 CDP 浏览器等待渲染
-- 限流: 控制请求频率，使用代理
+### 2. 播客/视频采集
 
-## 编译策略
+**目标**：获取完整逐字稿（Transcript）
 
-### 增量优先
-- 每次只处理新增的 raw 文件
-- 全量编译仅在结构大改时执行
+| 来源 | 获取方式 |
+|---|---|
+| YouTube | yt-dlp 下载字幕，或官方 Transcript |
+| 播客 | Podwise / Snipd / 官方 Transcript |
+| B站 | 字幕下载工具 |
+| 无字幕视频 | Whisper 本地转写 |
+| 第三方转录网站 | singjupost.com, metacast.app 等 |
 
-### 概念提取
-- 识别核心术语和概念
-- 建立概念间的关联
-- 更新索引文件
+**逐字稿要求**：
+- 包含说话人标识
+- 保留语气词、停顿
+- 不要"整理"成书面语
 
-## 创作策略
+### 3. 优质信息源
 
-### 平台适配
-- 了解各平台算法偏好
-- 调整内容长度和格式
-- 选择最佳发布时间
+**AI 领域一手信息**
+- OpenAI Blog / Anthropic Blog / Google AI Blog
+- arXiv 论文 / 官方文档
 
-### 内容复用
-- 一份长内容可拆解为多个平台版本
-- Thread → 公众号 → 小红书
+**意见领袖**
+- Andrej Karpathy, Yann LeCun, Jim Fan
+- 国内: 李沐, 宝玉 (@dotey)
 
-## Q&A 沉淀
+**高质量播客**
+- Lex Fridman / Acquired / Latent Space / No Priors
 
-每次复杂问答都应沉淀:
-```markdown
----
-question: "问题"
-asked_at: YYYY-MM-DD
-sources: [[[来源1]], [[来源2]]]
 ---
 
-# 问题标题
+## 写作规则
 
-## TL;DR
+### 讲人话
 
-## 详细回答
+❌ "RLVR 是针对自动可验证奖励进行强化学习训练的方法"
+✅ "简单说，就是让 AI 做数学题，对了奖励，错了惩罚"
 
-## 证据/来源
+### 用故事开头
 
-## 不确定性
+❌ "本文介绍 Claude Code 的最佳实践"
+✅ "上周我用 Claude Code 写了个爬虫，3 小时的活 20 分钟搞定"
+
+### 金句要能脱口而出
+
+❌ "LLM 呈现参差不齐的性能表现"
+✅ "AI 上一秒是博士，下一秒被小学生难住"
+
+### 举具体例子
+
+❌ "上下文窗口很重要"
+✅ "上下文就像 AI 的工作记忆。塞太多，它就开始犯迷糊"
+
+### 有节奏感
+
+- 长句短句交替
+- 重点单独一行
+- 留白让人喘息
+
+---
+
+## 工具配置
+
+### yt-dlp 下载字幕
+```bash
+yt-dlp --write-auto-sub --sub-lang en --skip-download "VIDEO_URL"
 ```
 
-存储位置: `outputs/qa/QA-YYYYMMDD-关键词.md`
+### Whisper 本地转写
+```bash
+whisper audio.mp3 --model medium --language en
+```
+
+### 网页内容提取 (Python)
+```python
+import urllib.request, re, html
+# ... 提取 <p> 标签内容，清理 HTML
+```
+
+---
+
+## 质量检查
+
+采集后：
+- [ ] 内容是否完整？（不是摘要）
+- [ ] 格式正确？（frontmatter 完整）
+- [ ] 来源标注？
+
+写作后：
+- [ ] 开头能抓人？
+- [ ] 有具体例子？
+- [ ] 读出来顺口？
+- [ ] 小白能看懂？
